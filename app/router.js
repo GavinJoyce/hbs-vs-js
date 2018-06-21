@@ -7,6 +7,15 @@ const Router = EmberRouter.extend({
 });
 
 Router.map(function() {
+  this.route('demos', function() {
+    this.route('mut');
+    this.route('array-helper');
+    this.route('hash-helper');
+    this.route('let-and-mod');
+    this.route('template-only-components');
+    this.route('contextual-components');
+    this.route('compare-compiled-output');
+  });
 });
 
 export default Router;

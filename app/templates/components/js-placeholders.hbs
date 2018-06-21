@@ -1,0 +1,11 @@
+<ul>
+  {{#each itemsWithPlaceholders as |itemsWithPlaceholder|}}
+    <li>
+      {{input
+        value=itemsWithPlaceholder.item
+        placeholder=itemsWithPlaceholder.placeholder
+        classNames='border rounded p-2'
+      }}
+    </li>
+  {{/each}}
+</ul>

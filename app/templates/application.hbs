@@ -1,5 +1,17 @@
-{{!-- The following component displays Ember's default welcome message. --}}
-{{welcome-page}}
-{{!-- Feel free to remove this! --}}
 
-{{outlet}}
+<div class="layout">
+  <div class="menu">
+    <ul>
+      <li>{{link-to 'mut' 'demos.mut'}}</li>
+      <li>{{link-to 'array helper' 'demos.array-helper'}}</li>
+      <li>{{link-to 'hash helper' 'demos.hash-helper'}}</li>
+      <li>{{link-to 'let & get & mod' 'demos.let-and-mod'}}</li>
+      <li>{{link-to 'compare compiled output' 'demos.compare-compiled-output'}}</li>
+      <li>{{link-to 'template only components' 'demos.template-only-components'}}</li>
+      <li>{{link-to 'contextual components' 'demos.contextual-components'}}</li>
+    </ul>
+  </div>
+  <div class="content">
+    {{outlet}}
+  </div>
+</div>

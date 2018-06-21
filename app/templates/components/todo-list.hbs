@@ -1,0 +1,80 @@
+{{#x-modal
+	footerButtonLabel="Footer button"
+  footerButtonOnClick=(action 'log' 'footer button')
+	as |modal|
+}}
+
+	{{#modal.header}}
+  	Todo List ({{outstandingItems.length}} left)
+  {{/modal.header}}
+
+  {{#modal.sidebar as |sidebar|}}
+      this is the side bar
+      <hr />
+      {{x-button
+        label="Hide"
+        onClick=modal.actions.hideSidebar
+      }}
+
+      <hr />
+
+      {{x-button
+        label="Clear All"
+        type="destructive"
+        onClick=(action 'clearAll')
+      }}
+  {{/modal.sidebar}}
+
+	{{#modal.body as |body|}}
+  	{{#if outstandingItems}}
+      Outstanding:
+      <ul>
+        {{#each outstandingItems as |item|}}
+          <li>
+            {{input type='checkbox' checked=item.isComplete}}
+            {{item.title}}
+          </li>
+        {{/each}}
+      </ul>
+    {{/if}}
+
+    {{#if completedItems}}
+      Done:
+      <ul>
+        {{#each completedItems as |item|}}
+          <li>
+            {{input type='checkbox' checked=item.isComplete}}
+            {{item.title}}
+          </li>
+        {{/each}}
+      </ul>
+     {{/if}}
+
+    {{#body.buttons as |buttons|}}
+      {{buttons.button
+      	label="New"
+        type="positive"
+        onClick=(action 'add')
+      }}
+
+      {{#if completedItems}}
+        {{buttons.button
+          label="Clear Completed"
+          onClick=(action 'clear')
+        }}
+      {{/if}}
+    {{/body.buttons}}
+
+      {{#unless body.sidebarIsVisible}}
+        {{#body.buttons as |buttons|}}
+          {{buttons.button
+            label="Show sidebar"
+            onClick=buttons.actions.showSidebar
+          }}
+
+        {{/body.buttons}}
+      {{/unless}}
+
+  {{/modal.body}}
+
+{{/x-modal}}

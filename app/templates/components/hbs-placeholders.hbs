@@ -1,0 +1,19 @@
+{{#let
+  (array
+    "eg. Buy some 🥛"
+    "eg. Grab a 🍺"
+    "eg. Pick up some 🥖"
+  ) as |placeholders|
+}}
+  <ul>
+    {{#each items as |item index|}}
+      <li>
+        {{input
+          value=item
+          placeholder=(get placeholders (mod index placeholders.length))
+          classNames='border rounded p-2'
+        }}
+      </li>
+    {{/each}}
+  </ul>
+{{/let}}

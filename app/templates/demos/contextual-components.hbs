@@ -1,0 +1,154 @@
+<h1>Contextual components</h1>
+
+{{x-modal
+	title="Simplest"
+  body="Simplest"
+  onConfirm=(action 'log' 'confirmed!')
+  onCancel=(action 'log' 'cancelled!')
+}}
+
+<hr />
+
+{{todo-list}}
+
+<hr />
+
+{{x-modal
+	title="Delete this company?"
+  body="Deleting a company is permanent and you will no longer be able to message or segment using this company."
+  showCloser=false
+  confirmButtonText="Delete"
+  confirmButtonType="destructive"
+  onConfirm=(action 'log' 'confirmed!')
+  onCancel=(action 'log' 'cancelled!')
+  onDismiss=(action 'log' 'dismissed!')
+}}
+
+<hr />
+
+{{x-modal
+	title="Close without saving?"
+  body="You'll lose any changes you've made if you close this article."
+  confirmButtonText="Close without saving"
+  cancelButtonText="Go back to article"
+  onConfirm=(action 'log' 'confirmed!')
+  onCancel=(action 'log' 'cancelled!')
+  onDismiss=(action 'log' 'dismissed!')
+}}
+
+
+
+
+{{#x-modal
+  onConfirm=(action 'log' 'confirmed!')
+  onCancel=(action 'log' 'cancelled!')
+  as |modal|
+}}
+	{{modal.header title='Simplest 2'}}
+  {{modal.body body='Simplest 2'}}
+{{/x-modal}}
+<hr />
+
+{{#x-modal
+  onConfirm=(action 'log' 'confirmed!')
+  onCancel=(action 'log' 'cancelled!')
+  as |modal|
+}}
+	{{#modal.header}}
+  	<i>Simplest</i> 3
+  {{/modal.header}}
+  {{#modal.sidebar}}
+  	<h1>SIDEBAR!</h1>
+  {{/modal.sidebar}}
+  {{#modal.body as |body|}}
+    {{body.buttons
+    	confirmButtonText="Delete"
+      confirmButtonType="destructive"
+    }}
+    <h2>Simplest 3</h2>
+    <button onclick={{action 'log' 'cancelled!'}}>Also Cancel</button>
+  {{/modal.body}}
+{{/x-modal}}
+<hr />
+
+{{#x-modal
+	footerButtonLabel="Button 4a"
+  footerButtonOnClick=(action 'log' 'button4a!')
+	as |modal|
+}}
+
+	{{#modal.header}}
+  	<h3 style="color: lightgreen">Delete this company?</h3>
+    <h3 style="color: pink">Delete this company?</h3>
+    <h3 style="color: orange">Delete this company?</h3>
+  {{/modal.header}}
+
+  {{#modal.body as |body|}}
+   	Deleting a company is permanent and you will no longer
+   	be able to message or segment using this company.
+
+    <hr />
+    <h2>some html...</h2>
+
+    <br />
+    {{body.buttons
+    	confirmButtonText="Delete"
+      confirmButtonType="destructive"
+      onConfirm=(action 'log' 'confirmed!')
+  		onCancel=(action 'log' 'cancelled!')
+  		onDismiss=(action 'log' 'dismissed!')
+    }}
+
+    {{#body.buttons as |buttons|}}
+      {{buttons.button
+      	label="Button 1a"
+        onClick=(action 'log' 'button1a')
+      }}
+      {{buttons.button
+      	label="Button 2a"
+        onClick=(action 'log' 'button2a')
+      }}
+      {{buttons.button
+      	label="Button 3a"
+        onClick=(action 'log' 'button3a')
+      }}
+    {{/body.buttons}}
+
+    {{#body.buttons as |buttons|}}
+      {{buttons.button
+      	label="Button 1b"
+        onClick=(action 'log' 'button1b')
+      }}
+      {{buttons.button
+      	label="Button 2b"
+        onClick=(action 'log' 'button2b')
+      }}
+      {{buttons.button
+      	label="Button 3b"
+        onClick=(action 'log' 'button3b')
+      }}
+    {{/body.buttons}}
+  {{/modal.body}}
+
+{{/x-modal}}
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="links">
+  <h2>Useful links:</h2>
+  <ul>
+    <li>
+      <a href="https://github.com/cibernox/ember-assign-helper">ember-assign-helper</a>
+    </li>
+  </ul>
+</div>

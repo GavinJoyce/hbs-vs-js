@@ -1,0 +1,62 @@
+<div class="modal">
+	{{#let
+		(hash
+			sidebarIsVisible=sidebarIsVisible
+			actions=(hash
+				showSidebar=(action (mut sidebarIsVisible) true)
+				hideSidebar=(action (mut sidebarIsVisible) false)
+			)
+		) as |publicAPI|
+	}}
+		{{#let
+			(component
+				'x-modal-header'
+				title=@title
+				headerButtonText=@headerButtonText
+				onHeaderButtonClick=@onHeaderButtonClick
+			) as |x-modal-header|
+		}}
+			{{#if title}}
+				{{component x-modal-header}}
+			{{else}}
+				{{yield
+					(assign
+						publicAPI
+						(hash header=(component x-modal-header) a=1)
+					)
+				}}
+			{{/if}}
+		{{/let}}
+
+		<div class="body-container">
+			{{#if sidebarIsVisible}}
+				{{yield
+					(assign
+						publicAPI
+						(hash sidebar=(component 'x-modal-sidebar') b=2)
+					)
+				}}
+			{{/if}}
+			{{#let
+				(component
+					'x-modal-body'
+					body=@body
+					confirmButtonText=(or @confirmButtonText 'OK')
+					confirmButtonType=(or @confirmButtonType 'positive')
+					cancelButtonText=(or @cancelButtonText 'Cancel')
+					cancelButtonType=(or @cancelButtonType 'cancelButtonType')
+					onConfirm=@onConfirm
+					onCancel=@onCancel
+					onDismiss=@onDismiss
+					publicAPI=publicAPI
+				) as |x-modal-body|
+			}}
+				{{#if body}}
+					{{component x-modal-body}}
+				{{else}}
+					{{yield (hash body=(component x-modal-body) c=3)}}
+				{{/if}}
+			{{/let}}
+		</div>
+	{{/let}}
+</div>

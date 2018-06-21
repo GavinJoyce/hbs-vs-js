@@ -1,0 +1,28 @@
+<div class="body">
+  {{#with
+    (component 'x-modal-body-buttons'
+      confirmButtonText=@confirmButtonText
+      confirmButtonType=@confirmButtonType
+      cancelButtonText=@cancelButtonText
+      cancelButtonType=@cancelButtonType
+      onConfirm=@onConfirm
+      onCancel=@onCancel
+      onDismiss=@onDismiss
+      publicAPI=@publicAPI
+    ) as |x-modal-body-buttons|
+  }}
+    {{#if hasBlock}}
+      {{yield
+      	(assign
+        	@publicAPI
+      		(hash
+          	buttons=(component x-modal-body-buttons)
+          )
+        )
+      }}
+    {{else}}
+      <p align="center">{{@body}}</p>
+      {{component x-modal-body-buttons}}
+    {{/if}}
+  {{/with}}
+</div>

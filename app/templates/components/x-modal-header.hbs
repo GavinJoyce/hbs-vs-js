@@ -1,0 +1,24 @@
+<div class="header">
+	<div class="left">
+		{{#if @headerButtonText}}
+	   	{{x-button
+	    	label=@headerButtonText
+	      onClick=@onHeaderButtonClick
+	    }}
+	  {{/if}}
+	</div>
+
+	<div class="title">
+		<h2>
+			{{#if hasBlock}}
+				{{yield}}
+			{{else}}
+				{{@title}}
+			{{/if}}
+		</h2>
+	</div>
+
+	<div class="right">
+		<a><i class="i o__close o__16">x</i></a>
+	</div>
+</div>

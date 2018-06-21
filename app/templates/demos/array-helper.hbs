@@ -1,0 +1,81 @@
+<h1>Array helper</h1>
+<h3>[{{name}}] is selected</h3>
+
+<div class="examples">
+  <div>
+    <h3>HBS + JS</h3>
+
+    {{#power-select
+      options=names
+      selected=name
+      onchange=(action "updateName")
+      as |name|
+    }}
+      {{name}}
+    {{/power-select}}
+  </div>
+  <div>
+    <h3>HBS only</h3>
+
+    todo: implement
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="links">
+  <h2>Useful links:</h2>
+  <ul>
+    <li>
+      <a href="https://github.com/DockYard/ember-composable-helpers">ember-composable-helpers</a>
+    </li>
+  </ul>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+{{!--
+{{#power-select
+  options=(array 'Alex' 'Ben' 'Sophie' 'Sarah')
+  selected=name
+  onchange=(action (mut name))
+  as |name|
+}}
+    {{name}}
+{{/power-select}} --}}

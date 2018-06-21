@@ -1,0 +1,22 @@
+<p align="center">
+	{{#if hasBlock}}
+		{{yield
+    	(assign
+      	@publicAPI
+        (hash button=(component 'x-button')
+      )
+   	)}}
+	{{else}}
+  	{{x-button
+    	label=@cancelButtonText
+      type=@cancelButtonType
+      onClick=(optional @onCancel)
+    }}
+
+    {{x-button
+    	label=@confirmButtonText
+      type=@confirmButtonType
+      onClick=(optional @onConfirm)
+    }}
+	{{/if}}
+</p>

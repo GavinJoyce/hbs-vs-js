@@ -1,0 +1,69 @@
+<h1>let &amp; get &amp; mod</h1>
+
+<button onclick={{action 'add'}}>+ Add</button>
+<button onclick={{action 'clear'}}>Clear</button>
+
+<div class="examples">
+  <div>
+    <h3>HBS + JS</h3>
+
+    <ul>
+      {{#each itemsWithPlaceholders as |itemsWithPlaceholder|}}
+        <li>
+          {{input
+            value=itemsWithPlaceholder.item
+            placeholder=itemsWithPlaceholder.placeholder
+          }}
+        </li>
+      {{/each}}
+    </ul>
+  </div>
+
+  <div>
+    <h3>HBS only</h3>
+
+    todo: implement
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+{{!--
+{{#let
+  (array
+    "eg. Buy some 🥛"
+    "eg. Grab a 🍺"
+    "eg. Pick up some 🥖"
+  ) as |placeholders|
+}}
+  <ul>
+    {{#each items as |item index|}}
+      <li>
+        {{input
+          value=item
+          placeholder=(get placeholders (mod index placeholders.length))
+        }}
+      </li>
+    {{/each}}
+  </ul>
+{{/let}} --}}

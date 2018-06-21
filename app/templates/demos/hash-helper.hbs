@@ -1,0 +1,81 @@
+<h1>Hash helper</h1>
+<h3>[{{number}}] is selected</h3>
+
+<div class="examples">
+  <div>
+    <h3>HBS + JS</h3>
+
+    {{#power-select
+      options=groupedNumbers
+      selected=number
+      onchange=(action (mut number))
+      as |num|
+    }}
+      {{num}}
+    {{/power-select}}
+  </div>
+  <div>
+    <h3>HBS only</h3>
+
+    todo: implement
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="links">
+  <h2>Useful links:</h2>
+  <ul>
+    <li>
+      <a href="https://www.emberjs.com/api/ember/3.2/classes/Ember.Templates.helpers/methods/hash?anchor=hash">hash helper docs</a>
+    </li>
+  </ul>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+{{!--
+{{#power-select
+  options=(array
+    (hash groupName='Smalls' options=(array 'one' 'two' 'three'))
+    (hash groupName='Mediums' options=(array 'four' 'five' 'six'))
+    (hash groupName='Bigs' options=(array
+      (hash groupName='Fairly big' options=(array 'seven' 'eight' 'nine'))
+      (hash groupName='Fairly big' options=(array 'ten' 'eleven' 'twelve'))
+      'thirteen'
+    ))
+  )
+  selected=number
+  onchange=(action (mut number))
+  as |num|
+}}
+    {{num}}
+{{/power-select}} --}}
