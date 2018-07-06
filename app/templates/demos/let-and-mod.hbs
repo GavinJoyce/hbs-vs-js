@@ -22,48 +22,23 @@
   <div>
     <h3>HBS only</h3>
 
-    todo: implement
+    {{#let
+      (array
+        "eg. Buy some 🥛"
+        "eg. Grab a 🍺"
+        "eg. Pick up some 🥖"
+      ) as |placeholders|
+    }}
+      <ul>
+        {{#each items as |item index|}}
+          <li> {{mod index placeholders.length}}
+            {{input
+              value=item
+              placeholder=(get placeholders (mod index placeholders.length))
+            }}
+          </li>
+        {{/each}}
+      </ul>
+    {{/let}}
   </div>
 </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-{{!--
-{{#let
-  (array
-    "eg. Buy some 🥛"
-    "eg. Grab a 🍺"
-    "eg. Pick up some 🥖"
-  ) as |placeholders|
-}}
-  <ul>
-    {{#each items as |item index|}}
-      <li>
-        {{input
-          value=item
-          placeholder=(get placeholders (mod index placeholders.length))
-        }}
-      </li>
-    {{/each}}
-  </ul>
-{{/let}} --}}

@@ -17,7 +17,15 @@
   <div>
     <h3>HBS only</h3>
 
-    todo: implement
+
+    {{#power-select
+      options=(array 'Alex' 'Ben' 'Sophie' 'Sarah')
+      selected=name
+      onchange=(action (mut name))
+      as |name|
+    }}
+        {{name}}
+    {{/power-select}}
   </div>
 </div>
 
@@ -51,31 +59,3 @@
     </li>
   </ul>
 </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-{{!--
-{{#power-select
-  options=(array 'Alex' 'Ben' 'Sophie' 'Sarah')
-  selected=name
-  onchange=(action (mut name))
-  as |name|
-}}
-    {{name}}
-{{/power-select}} --}}

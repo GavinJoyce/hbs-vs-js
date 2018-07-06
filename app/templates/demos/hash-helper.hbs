@@ -17,7 +17,22 @@
   <div>
     <h3>HBS only</h3>
 
-    todo: implement
+    {{#power-select
+      options=(array
+        (hash groupName='Smalls' options=(array 'one' 'two' 'three'))
+        (hash groupName='Mediums' options=(array 'four' 'five' 'six'))
+        (hash groupName='Bigs' options=(array
+          (hash groupName='Fairly big' options=(array 'seven' 'eight' 'nine'))
+          (hash groupName='Fairly big' options=(array 'ten' 'eleven' 'twelve'))
+          'thirteen'
+        ))
+      )
+      selected=number
+      onchange=(action (mut number))
+      as |num|
+    }}
+        {{num}}
+    {{/power-select}}
   </div>
 </div>
 
@@ -47,35 +62,3 @@
     </li>
   </ul>
 </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-{{!--
-{{#power-select
-  options=(array
-    (hash groupName='Smalls' options=(array 'one' 'two' 'three'))
-    (hash groupName='Mediums' options=(array 'four' 'five' 'six'))
-    (hash groupName='Bigs' options=(array
-      (hash groupName='Fairly big' options=(array 'seven' 'eight' 'nine'))
-      (hash groupName='Fairly big' options=(array 'ten' 'eleven' 'twelve'))
-      'thirteen'
-    ))
-  )
-  selected=number
-  onchange=(action (mut number))
-  as |num|
-}}
-    {{num}}
-{{/power-select}} --}}

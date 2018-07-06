@@ -13,7 +13,11 @@
   <div>
     <h3>HBS</h3>
 
-    todo: implement
+    
+    <input
+      value={{name}}
+      oninput={{action (mut name) value='target.value'}}
+    />
   </div>
 </div>
 
@@ -46,27 +50,3 @@
     </li>
   </ul>
 </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-{{!--
-<input
-  value={{name}}
-  oninput={{action (mut name) value='target.value'}}
-/> --}}
